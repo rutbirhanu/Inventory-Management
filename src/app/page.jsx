@@ -1,4 +1,5 @@
 import { Roboto_Condensed } from "next/font/google";
+import Image from "next/image";
 
 const robotoCondensed = Roboto_Condensed({
   weight: ['400', '700'],
@@ -18,7 +19,9 @@ export default function Home() {
           <li className={robotoCondensed.className} >Transactions</li>
         </ul>
       </aside>
-      <main className="container shadow-lg rounded-3xl p-5 border-indigo-600 ">main</main>
+      <main className="container shadow-lg rounded-3xl p-5 border-indigo-600 ">
+        <Image src="https://datacopia.com/assets/images/Welcome/d.png" alt="chart" height={300} width={200}/>
+      </main>
       
    </div>
   );
