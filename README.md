@@ -6,3 +6,7 @@ This repository contains a simple inventory management system built with Next.js
 -  Add Product: Add new products to the inventory with relevant details.
 -  Delete Product: Remove products from the inventory.
 -  Transaction Management: Manage transactions, including tracking product sales and inventory changes.
+
+## Technologies
+- Next js
+- D3
