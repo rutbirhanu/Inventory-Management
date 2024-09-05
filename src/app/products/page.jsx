@@ -1,7 +1,12 @@
+"use client"
+
+import { useState, useEffect } from "react"
 
 function page() {
+  const [values, setValue] = useState({})
+  
   return (
-    <div className="container min-h-screen bg-gradient-to-r from-purple-50 to-pink-50 flex flex-wrap p-4 justify-evenly items-center">
+    <div className=" bg-gradient-to-r from-purple-50 to-pink-50 flex flex-wrap p-4 justify-evenly items-center">
       <div className="flex flex-col p-10 gap-1 shadow bg-gradient-to-r from-purple-100 to-pink-100">
         <h2 className="mb-10 text-2xl font-medium">Add Product</h2>
         <label htmlFor="name" className="text-sm text-gray-500">Product Name</label>
