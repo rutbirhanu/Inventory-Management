@@ -1,6 +1,6 @@
 "use client"
 
-import Card from "@/components/card";
+import Card from "@/components/home_card";
 import { Roboto_Condensed } from "next/font/google";
 import { useEffect, useRef } from "react"
 import * as d3 from 'd3';
