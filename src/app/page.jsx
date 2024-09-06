@@ -2,8 +2,7 @@
 
 import Card from "@/components/card";
 import { Roboto_Condensed } from "next/font/google";
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import * as d3 from 'd3';
 
 const robotoCondensed = Roboto_Condensed({
@@ -65,7 +64,6 @@ export default function Home() {
 
       <main className="container shadow-lg rounded-3xl p-5 border-indigo-600  bg-gradient-to-r from-purple-100 to-pink-100 ">
         <div className="flex flex-wrap gap-5">
-          <Image src="https://datacopia.com/assets/images/Welcome/d.png" alt="chart" height={300} width={200} />
           <Card />
           <Card />
         </div>

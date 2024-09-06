@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Roboto_Condensed } from "next/font/google";
+import Link from "next/link";
 
 const robotoCondensed = Roboto_Condensed({
   weight: ['400', '700'],
@@ -24,9 +25,9 @@ export default function RootLayout({ children }) {
       <aside className="flex flex-col w-56 p-8 fixed top-0 left-0 bottom-0 border-r-2 min-h-screen border-indigo-500">
         <h2 className="text-2xl font-bold mb-20 text-indigo-800">Dashboard</h2>
         <ul className="space-y-4">
-          <li className={robotoCondensed.className}>Overview</li>
-          <li className={robotoCondensed.className}>Products</li>
-          <li className={robotoCondensed.className}>Transactions</li>
+          <li className={robotoCondensed.className}><Link href="/">Overview</Link></li>
+          <li className={robotoCondensed.className}><Link href="/products">Products</Link></li>
+          <li className={robotoCondensed.className}><Link href="/transaction">Transactions</Link></li>
         </ul>
       </aside>
   
