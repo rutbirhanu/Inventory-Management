@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
     <body
       className={`${inter.className} flex bg-gradient-to-r from-purple-50 to-pink-50`}>
-      <aside className="flex flex-col w-56 p-8 fixed top-0 left-0 bottom-0 border-r-2 min-h-screen border-indigo-500">
+      <aside className="flex flex-col w-56 p-8 fixed top-0 left-0 bottom-0 min-h-screen">
         <h2 className="text-2xl font-bold mb-20 text-indigo-800">Dashboard</h2>
         <ul className="space-y-4">
           <li className={robotoCondensed.className}><Link href="/">Overview</Link></li>

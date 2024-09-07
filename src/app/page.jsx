@@ -17,14 +17,14 @@ export default function Home() {
 
   useEffect(() => {
     const svg = d3.select(svgRef.current)
-      .attr('width', 500)
-      .attr('height', 300)
+      .attr('width', 400)
+      .attr('height', 200)
       .style('overflow', 'visible')
       .style('margin', '50px');
 
     // Sample Data
     const data = [
-      { x: 0, y: 10 },
+      { x: 0, y: 4 },
       { x: 1, y: 20 },
       { x: 2, y: 15 },
       { x: 3, y: 30 },
@@ -34,14 +34,14 @@ export default function Home() {
     ];
 
     // Define scales
-    const xScale = d3.scaleLinear().domain([0, 6]).range([0, 500]);
-    const yScale = d3.scaleLinear().domain([0, 50]).range([300, 0]);
+    const xScale = d3.scaleLinear().domain([0, 6]).range([0, 400]);
+    const yScale = d3.scaleLinear().domain([0, 50]).range([200, 0]);
 
     // Create axes
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);
 
-    svg.append('g').call(xAxis).attr('transform', 'translate(0,300)');
+    svg.append('g').call(xAxis).attr('transform', 'translate(0,200)');
     svg.append('g').call(yAxis);
 
     // Create curved line generator
@@ -62,8 +62,9 @@ export default function Home() {
   return (
     <div className="container p-6 flex bg-gradient-to-r from-purple-50 to-pink-50">
 
-      <main className="container shadow-lg rounded-3xl p-5 border-indigo-600  bg-gradient-to-r from-purple-100 to-pink-100 ">
-        <div className="flex flex-wrap gap-5">
+      <main className="container shadow-2xl rounded-3xl p-5 border-indigo-600 ">
+        <div className="flex flex-wrap justify-evenly">
+          <Card />
           <Card />
           <Card />
         </div>
