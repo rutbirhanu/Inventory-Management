@@ -59,6 +59,65 @@ export default function Home() {
       .attr('stroke-width', 2);
   }, []);
 
+
+  const data = [
+    { label: 'A', value: 30 },
+    { label: 'B', value: 70 },
+    { label: 'C', value: 45 },
+    { label: 'D', value: 65 }
+  ];
+
+  const pieSvgRef = useRef()
+  useEffect(() => {
+    const width = 200;
+    const height = 200;
+    const radius = Math.min(width, height) / 2;
+
+    const svg = d3.select(pieSvgRef.current)
+      .attr('width', width)
+      .attr('height', height)
+      .append('g')
+      .attr('transform', `translate(${width / 2}, ${height / 2})`);
+
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    const pie = d3.pie().value(d => d.value);
+    const arc = d3.arc().outerRadius(radius - 10).innerRadius(0);
+
+    const tooltip = d3.select("#tooltip");
+
+    // Draw pie chart
+    svg.selectAll('.slice')
+      .data(pie(data))
+      .enter()
+      .append('path')
+      .attr('class', 'slice')
+      .attr('d', arc)
+      .attr('fill', d => color(d.data.label))
+      .on("mouseover", (event, d) => {
+        tooltip.transition().duration(200).style("opacity", .9);
+        tooltip.html(`${d.data.label}: ${d.data.value}`)
+          .style("left", (event.pageX + 5) + "px")
+          .style("top", (event.pageY - 28) + "px");
+      })
+      .on("mouseout", () => {
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
+
+    // Add labels
+    svg.selectAll('.label')
+      .data(pie(data))
+      .enter()
+      .append('text')
+      .attr('class', 'label')
+      .attr('transform', d => `translate(${arc.centroid(d)})`)
+      .attr('dy', '.35em')
+      .style('text-anchor', 'middle')
+      .text(d => d.data.label);
+
+  }, [data]);
+
+
   return (
     <div className="container p-6 flex bg-gradient-to-r from-purple-50 to-pink-50">
 
@@ -68,7 +127,12 @@ export default function Home() {
           <Card />
           <Card />
         </div>
-        <svg ref={svgRef}></svg>;
+
+        <div className=" container flex gap-10 my-20 items-center">
+          <svg ref={svgRef}></svg>;
+          <svg ref={pieSvgRef}></svg>;
+        </div>
+
       </main>
 
     </div>
