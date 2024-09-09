@@ -10,3 +10,5 @@ This repository contains a simple inventory management system built with Next.js
 ## Technologies
 - Next js
 - D3 (for data visualization)
+- Postgres
+- Tailwind
