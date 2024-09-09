@@ -3,6 +3,7 @@
 import ProductCard from "@/components/product_card"
 // import ProductCard from "@/components/productCard"
 import { useState, useEffect } from "react"
+import { GET } from "../api/product/route"
 
 function page() {
   const [values, setValue] = useState({
@@ -20,6 +21,7 @@ function page() {
   const onSave = (e) => {
     e.preventDefault()
     setProducts([...products, values])
+    GET()
   }
 
 
